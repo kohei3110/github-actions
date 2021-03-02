@@ -1,4 +1,4 @@
-# github-actions
+# GitHub Actions Trial
 
-## Sample
-これはサンプルです。
+## Contents
+ - Actions will be triggered when changes are pushed or requests are pulled to master branch
