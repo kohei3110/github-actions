@@ -22,9 +22,16 @@ public class GhTest {
     }
     
      @Test
-     public void echo() {
+     public void echoTest() {
          String expected = "hey";
          String actual = gh.echo();
+         assertThat(actual, is(expected));
+     }
+     
+     @Test
+     public void calcTest() {
+         int expected = 1;
+         int actual = gh.calc();
          assertThat(actual, is(expected));
      }
 }
