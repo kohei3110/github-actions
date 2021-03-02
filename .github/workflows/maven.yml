@@ -25,3 +25,11 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+    - name: Build & Push docker image
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        repository: kk31108424/demo-app
+        tag_with_ref: true
