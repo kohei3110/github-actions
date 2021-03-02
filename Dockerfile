@@ -33,21 +33,16 @@ RUN \
 
 # Setup environment variables
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-ENV GF_HOME /usr/local/glassfish4
 ENV PATH $PATH:$JAVA_HOME/bin:$GF_HOME/bin
 
 # Allow Derby to start as daemon (used by some Java EE app, such as Pet Store)
 RUN echo "grant { permission java.net.SocketPermission \"localhost:1527\", \"listen\"; };" >> $JAVA_HOME/jre/lib/security/java.policy
 
 # Secure GF installation with a password and authorize network access
-ADD password_1.txt /tmp/password_1.txt
-ADD password_2.txt /tmp/password_2.txt
-RUN asadmin --user admin --passwordfile /tmp/password_1.txt change-admin-password --domain_name domain1 ; asadmin start-domain domain1 ; asadmin --user admin --passwordfile /tmp/password_2.txt enable-secure-admin ; asadmin stop-domain domain1
-RUN rm /tmp/password_?.txt
+# WIP
 
 # Add our GF startup script
-ADD start-gf.sh /usr/local/bin/start-gf.sh
-RUN chmod 755 /usr/local/bin/start-gf.sh
+# WIP
 
 # PORT FORWARD THE ADMIN PORT, HTTP LISTENER-1 PORT, HTTPS LISTENER PORT, PURE JMX CLIENTS PORT, MESSAGE QUEUE PORT, IIOP PORT, IIOP/SSL PORT, IIOP/SSL PORT WITH MUTUAL AUTHENTICATION
 #EXPOSE 4848 8080 8181 8686 7676 3700 3820 3920
@@ -56,6 +51,4 @@ EXPOSE 8080 4848
 
 # deploy an application to the container
 # example below - it uses the auto-deploy service of Glassfish
-ADD https://github.com/yoshioterada/JavaEE7-App-On-Docker/blob/master/JavaEE7-App-On-Docker/target/JavaEE7-App-On-Docker-1.0-SNAPSHOT.war?raw=true /usr/local/glassfish4/glassfish/domains/domain1/autodeploy/JavaEE7-App-On-Docker.war
-
-ENTRYPOINT ["/usr/local/bin/start-gf.sh"]
+# WIP
