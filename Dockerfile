@@ -3,7 +3,6 @@ MAINTAINER "Kohei Saito" "kk.31108424@gmail.com"
 
 # タイムゾーン
 RUN echo "Asia/Tokyo" > /etc/timezone
-RUN dpkg-reconfigure -f noninteractive tzdata
 
 # ロケールの設定
 RUN locale-gen en_US.UTF-8
