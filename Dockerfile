@@ -4,11 +4,6 @@ MAINTAINER "Kohei Saito" "kk.31108424@gmail.com"
 # タイムゾーン
 RUN echo "Asia/Tokyo" > /etc/timezone
 
-# ロケールの設定
-RUN locale-gen en_US.UTF-8
-RUN locale-gen ja_JP.UTF-8
-RUN update-locale LANG=ja_JP.UTF-8 
-
 # Install required Linux packages
 RUN apt-get update
 RUN apt-get -y install wget
