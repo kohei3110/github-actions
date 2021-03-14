@@ -12,7 +12,7 @@ RUN apt-get -y install wget
 RUN apt-get -y install unzip
 
 #Install Java 1.8
-# WIP
+RUN apt-get install openjdk-8-jre
 
 # Install GlassFish 5
 # WIP
